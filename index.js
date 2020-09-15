@@ -15,14 +15,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    Hi: 'go to hell',
+    Hi: "go to hell",
   });
 });
-app.get("/ser/:ser/", (req, res) => {
+app.get("/ser/:date/:ser/", (req, res) => {
   const ser = req.params.ser;
+  const date = req.params.date;
+  var dates = { h: "qdr:h", d: "qdr:d", w: "qdr:w", m: "qdr:m", y: "qdr:y" };
+  console.log(dates[date]);
   var opts = {
     searchTerm: decodeURIComponent(ser),
-    queryStringAddition: "&tbs=ic:trans&tbs=qdr:d&safe=active",
+    queryStringAddition: `&tbs=ic:trans&tbs=${dates[date]}&safe=active`,
   };
 
   gis(opts, logResults);
