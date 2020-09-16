@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    Hi: "go to hell",
+    Hi: "Suck Your Self!",
   });
 });
 app.get("/ser/:date/:ser/", (req, res) => {
